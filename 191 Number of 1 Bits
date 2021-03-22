@@ -1,9 +1,23 @@
 # 191 Number of 1 Bits
+# python3 (40 ms	14.8 MB)
 
 class Solution:
     def hammingWeight(self, n: int) -> int:
         ans = 0
         while(n != 0):
             n = n & (n-1)
-            ans += 1
-            return ans
+            ans +=1
+        return ans
+
+# C code (4 ms	5.3 MB)
+
+int hammingWeight(uint32_t n) {
+    int ans = 0;
+    while(n != 0){
+        ans += n%2;
+        n = n/2;
+        
+    }
+    return ans;
+    
+}
