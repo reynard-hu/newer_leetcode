@@ -1,0 +1,5 @@
+# Read from the file words.txt and output the word frequency list to stdout.
+
+# python 3 (144 ms	8.9 MB)
+python3 -c "print(*map('%s %d'.__mod__,sorted(__import__('collections').Counter(' '.join(open('words.txt').readlines()).split()).items(),key=lambda x:-x[1])),sep='\n')"
+
