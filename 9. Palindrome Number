@@ -1,0 +1,27 @@
+# python (116 ms	13 MB)
+
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        return str(x)[::-1] == str(x)
+        
+  # c code (8 ms	5.9 MB)
+  
+  bool isPalindrome(int x){
+    int a;
+    long int revers = 0;
+    int b = x;
+
+    if (x < 0 || (x % 10 == 0 && x != 0)){
+        return false;
+    }
+    while(x){
+        a = x % 10;
+        x = x / 10;
+        revers = a + revers * 10;
+    }
+    return b == revers;
+}
