@@ -1,4 +1,4 @@
-%% C
+# C  (12 ms	10.1 MB)
 
 #define MIN(a,b) ((a) < (b) ? (a) : (b))
 
@@ -20,7 +20,7 @@ int getMinimumDifference(struct TreeNode* root){
     return pro;
 }
 
-%% C++
+# C++  (16 ms	24.4 MB)
 
 class Solution {
 public:
