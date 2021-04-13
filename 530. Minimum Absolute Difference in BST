@@ -1,0 +1,41 @@
+%% C
+
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+
+void dfs(struct TreeNode* root, int *pre, int *pro){
+    if (root == NULL){return;}
+    dfs(root->left, pre, pro);
+    if ((*pre) != -1){
+        *pro = MIN(*pro, root->val - (*pre));
+    }
+    (*pre) = root->val;
+    dfs(root->right, pre, pro);
+    return;
+}
+
+int getMinimumDifference(struct TreeNode* root){
+    int pro = INT_MAX;
+    int pre = -1;
+    dfs(root, &pre, &pro);
+    return pro;
+}
+
+%% C++
+
+class Solution {
+public:
+    int getMinimumDifference(struct TreeNode *root){
+        int last = 0x3f3f3f3f, minm = 0x3f3f3f3f;
+        dfs(root, last, minm);
+        return minm;
+    }
+    void dfs(struct TreeNode *root, int& last, int& minm){
+        if(root == nullptr) return;
+        dfs(root->left, last, minm);
+        if(last!=0x3f3f3f3f){
+            minm = min(minm, abs(root->val-last));
+        }
+        last = root->val;
+        dfs(root->right,last, minm);
+    }
+};
